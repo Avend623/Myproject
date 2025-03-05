@@ -2,7 +2,6 @@
 #include <conio.h>
 #include <ctime>
 #include <windows.h>
-#include <mmsystem.h> // Include mmsystem.h for PlaySound
 using namespace std;
 void ClearScreen()
 {
@@ -206,26 +205,29 @@ void Snake::Logic()
         Generate_fruit();
         Tail_N++;
         score++;
-        Beep(750, 300); // Beep sound when fruit is eaten
+        Beep(750, 100); // Beep sound when fruit is eaten
     }
     if (x == 0 || x >= width - 1 || y == 0 || y >= height - 1)
     {
         GameOver = true;
-        Beep(500, 500); // Beep sound when game is over
+        Beep(500, 200); // Beep sound when game is over
+        Beep(700, 200); // Beep sound when game is over
+        Beep(900, 200); // Beep sound when game is over
     }
     for (int i = 0; i < Tail_N; i++)
     {
         if (x == TailX[i] && y == TailY[i])
         {
             GameOver = true;
-            Beep(500, 500); // Beep sound when game is over
+            Beep(500, 200); // Beep sound when game is over
+            Beep(700, 200); // Beep sound when game is over
+            Beep(900, 200); // Beep sound when game is over
         }
     }
 }
 void Results(Snake obs[], int size);
 int main()
 {
-    instructions();
     // PlaySound(TEXT("651670__code_box__desert-snake.wav"), NULL, SND_FILENAME | SND_ASYNC);
     instructions();
     int size;
