@@ -2,9 +2,8 @@
 #include <conio.h>
 #include <ctime>
 #include <windows.h>
+#include <mmsystem.h> // Include mmsystem.h for PlaySound
 using namespace std;
-
-// Function to clear the console screen
 void ClearScreen()
 {
     COORD topLeft = {0, 0};
@@ -12,66 +11,59 @@ void ClearScreen()
     CONSOLE_SCREEN_BUFFER_INFO screen;
     DWORD written;
 
-    // Get the console screen buffer info
     GetConsoleScreenBufferInfo(console, &screen);
-    // Fill the console output with spaces to clear it
     FillConsoleOutputCharacterA(
         console, ' ', screen.dwSize.X * screen.dwSize.Y, topLeft, &written);
-    // Reset the console text attributes
     FillConsoleOutputAttribute(
         console, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE,
         screen.dwSize.X * screen.dwSize.Y, topLeft, &written);
-    // Set the cursor position to the top left
     SetConsoleCursorPosition(console, topLeft);
 }
-
-// Function to display a countdown before the game starts
+// Change console text color
 void countdown()
 {
     for (int i = 3; i > 0; i--)
     {
-        cout << "The game starts in " << i << "...";
-        Beep(1000, 200); // Beep sound for countdown
-        Sleep(600); // Shorten the countdown duration
+        cout<<"The game start in "<<i<<"...";
+        Sleep(900);
         ClearScreen();
     }
-    Beep(1500, 300); // Beep sound when countdown ends
 }
-
-// Function to set the console text color
 void SetColor(int color)
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, color);
 }
-
-static int player_N = 0; // Static variable to keep track of player number
-
-void instructions(); // Function prototype for displaying instructions
-
-// Snake class definition
+static int player_N = 0;
+void instructions();
 class Snake
 {
 private:
-    enum edirection { Stop, Top, Down, Right, Left }; // Enumeration for direction
-    edirection dir; // Current direction of the snake
+    enum edirection
+    {
+        Stop,
+        Top,
+        Down,
+        Right,
+        Left
+    };
+    edirection dir;
     int width, height, x, y, fruitX, fruitY, Tail_N = 0, score = 0, burn = 0, TailX[100], TailY[100];
     bool GameOver = false;
     string name;
 
 public:
-    int Setup(int Width); // Function to set up the game
-    void Draw(); // Function to draw the game
-    void Input(); // Function to handle user input
-    bool Gamover() { return GameOver; } // Function to check if the game is over
-    int Get_Score() { return score; } // Function to get the score
-    string Get_Name() { return name; } // Function to get the player's name
-    void Logic(); // Function to handle game logic
-    void Generate_fruit(); // Function to generate a new fruit
-    void Shift_Right(int arr[], int size); // Function to shift the tail array to the right
+    int Setup(int Width);
+    void Draw();
+    void Input();
+    bool Gamover() { return GameOver; }
+    int Get_Score() { return score; }
+    string Get_Name() { return name; }
+    void Logic();
+    void Generate_fruit();
+    void Shift_Right(int arr[], int size);
 };
 
-// Function to shift the tail array to the right
 void Snake::Shift_Right(int arr[], int size)
 {
     for (int i = size - 2; i >= 0; i--)
@@ -80,7 +72,6 @@ void Snake::Shift_Right(int arr[], int size)
     }
 }
 
-// Function to generate a new fruit
 void Snake::Generate_fruit()
 {
     bool wh;
@@ -100,13 +91,12 @@ void Snake::Generate_fruit()
     } while (wh);
 }
 
-// Function to set up the game
 int Snake::Setup(int Width)
 {
     if (burn == 1)
         return 0;
-    srand(time(NULL)); // Seed the random number generator
-    dir = Stop; // Initialize direction to Stop
+    srand(time(NULL));
+    dir = Stop;
     cout << "enter player name:";
     cin >> name;
     player_N++;
@@ -115,14 +105,12 @@ int Snake::Setup(int Width)
     x = width / 2;
     y = height / 2;
     burn++;
-    Generate_fruit(); // Generate the first fruit
-    countdown(); // Display the countdown
+    Generate_fruit();
+    countdown();
 }
-
-// Function to draw the game
 void Snake::Draw()
 {
-    ClearScreen(); // Clear the screen
+    ClearScreen();
     cout << "PLayer " << player_N << " :" << name << endl;
     cout << "PLayer's Score:" << score << endl;
     for (int i = 0; i < height; i++)
@@ -130,21 +118,23 @@ void Snake::Draw()
         for (int j = 0; j < width; j++)
         {
             if (i == 0 || i == height - 1)
-                cout << "*"; // Draw the top and bottom borders
+                cout << "*";
             else if (j == 0 || j == width - 1)
-                cout << "*"; // Draw the left and right borders
+                cout << "*";
+            // In Draw()
             else if (i == y && j == x)
             {
                 SetColor(2); // Green for snake
-                cout << "O"; // Draw the snake's head
+                cout << "O";
                 SetColor(7); // Reset to white
             }
             else if (i == fruitY && j == fruitX)
             {
                 SetColor(12); // Red for fruit
-                cout << "$"; // Draw the fruit
+                cout << "$";
                 SetColor(7); // Reset to white
             }
+
             else
             {
                 bool printed = false;
@@ -153,21 +143,19 @@ void Snake::Draw()
                     if (TailX[z] == j && TailY[z] == i)
                     {
                         SetColor(10); // Bright green tail
-                        cout << "o"; // Draw the snake's tail
+                        cout << "o";
                         printed = true;
                         SetColor(7); // Reset to white
                         break;
                     }
                 }
                 if (!printed)
-                    cout << " "; // Draw empty space
+                    cout << " ";
             }
         }
         cout << endl;
     }
 }
-
-// Function to handle user input
 void Snake::Input()
 {
     if (_kbhit())
@@ -192,13 +180,11 @@ void Snake::Input()
         }
     }
 }
-
-// Function to handle game logic
 void Snake::Logic()
 {
-    Shift_Right(TailX, 100); // Shift the tail arrays to the right
+    Shift_Right(TailX, 100);
     Shift_Right(TailY, 100);
-    TailX[0] = x; // Update the head position in the tail arrays
+    TailX[0] = x;
     TailY[0] = y;
     switch (dir)
     {
@@ -217,31 +203,60 @@ void Snake::Logic()
     }
     if (x == fruitX && y == fruitY)
     {
-        Generate_fruit(); // Generate a new fruit
-        Tail_N++; // Increase the tail length
-        score++; // Increase the score
-        Beep(750, 50); // Beep sound when fruit is eaten
+        Generate_fruit();
+        Tail_N++;
+        score++;
+        Beep(750, 300); // Beep sound when fruit is eaten
     }
     if (x == 0 || x >= width - 1 || y == 0 || y >= height - 1)
     {
         GameOver = true;
-        Beep(500, 200); // Lower frequency for game over
-        Beep(400, 200); // Lower frequency for game over
-        Beep(300, 200); // Lower frequency for game over
+        Beep(500, 500); // Beep sound when game is over
     }
     for (int i = 0; i < Tail_N; i++)
     {
         if (x == TailX[i] && y == TailY[i])
         {
             GameOver = true;
-            Beep(500, 200); // Lower frequency for game over
-            Beep(400, 200); // Lower frequency for game over
-            Beep(300, 200); // Lower frequency for game over
+            Beep(500, 500); // Beep sound when game is over
         }
     }
 }
+void Results(Snake obs[], int size);
+int main()
+{
+    instructions();
+    // PlaySound(TEXT("651670__code_box__desert-snake.wav"), NULL, SND_FILENAME | SND_ASYNC);
+    instructions();
+    int size;
+    int width; // Declare width variable
+    cout << "Enter your Map width(minimum 20):";
+    cin >> width;
+    while (width < 20)
+    {
+        cout << "too small!" << endl;
+        cout << "Enter your Map width(minimum 20):";
+        cin >> width;
+    }
 
-// Function to display the results
+    cout << "Number of Players: ";
+    cin >> size;
+    Snake *obs = new Snake[size];
+    for (int i = 0; i < size; i++)
+    {
+        while (!obs[i].Gamover())
+        {
+            obs[i].Setup(width);
+            obs[i].Draw();
+            obs[i].Input();
+            obs[i].Logic();
+            Sleep(100);
+        }
+    }
+    Results(obs, size);
+    delete[] obs;
+    system("pause");
+}
 void Results(Snake obs[], int size)
 {
     bool ITW = 0;
@@ -279,74 +294,28 @@ void Results(Snake obs[], int size)
     {
         if (obs[i].Get_Score() == highestScore)
         {
-            SetColor(10);
             cout << "THE WINNER, PLAYER " << i + 1 << ":" << obs[i].Get_Name() << endl;
             cout << "THE WINNER, PLAYER " << i + 1 << "'s SCORE:" << obs[i].Get_Score() << endl;
-            SetColor(7);
         }
         else
         {
-            SetColor(12);
             cout << "PLAYER " << i + 1 << ":" << obs[i].Get_Name() << endl;
             cout << "PLAYER " << i + 1 << "'s SCORE:" << obs[i].Get_Score() << endl;
-            SetColor(7);
         }
     }
 }
-
-// Function to display instructions
 void instructions()
 {
     SetColor(4);
     cout << "*The height will be half of width" << endl;
-    Beep(1000, 200); // Beep sound for instruction
     getch();
-    cout << "Use WASD to move the snake" << endl;
-    Beep(1000, 200); // Beep sound for instruction
+        cout << "Use WASD to move the snake" << endl;
     getch();
-    cout << "The highest score will win." << endl;
-    Beep(1000, 200); // Beep sound for instruction
+        cout << "The highest score will win." << endl;
     getch();
-    cout << "Please, Respect my game." << endl;
-    Beep(1000, 200); // Beep sound for instruction
+        cout << "Please,Respect my game." << endl;
     getch();
     cout << "Enjoy.." << endl;
     SetColor(7);
     Sleep(200);
-}
-
-// Main function
-int main()
-{
-    // PlaySound(TEXT("651670__code_box__desert-snake.wav"), NULL, SND_FILENAME | SND_ASYNC);
-    instructions(); // Display instructions
-    int size;
-    int width; // Declare width variable
-    cout << "Enter your Map width(minimum 20):";
-    cin >> width;
-    while (width < 20)
-    {
-        cout << "too small!" << endl;
-        cout << "Enter your Map width(minimum 20):";
-        cin >> width;
-    }
-
-    cout << "Number of Players: ";
-    cin >> size;
-    Snake *obs = new Snake[size]; // Create an array of Snake objects
-    for (int i = 0; i < size; i++)
-    {
-        while (!obs[i].Gamover())
-        {
-            obs[i].Setup(width); // Set up the game
-            obs[i].Draw(); // Draw the game
-            obs[i].Input(); // Handle user input
-            obs[i].Logic(); // Handle game logic
-            Sleep(100); // Delay for a short period
-        }
-        system("pause");
-    }
-    Results(obs, size); // Display the results
-    delete[] obs; // Delete the array of Snake objects
-    system("pause"); // Pause the system
 }
