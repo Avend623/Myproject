@@ -1,0 +1,11 @@
+.break1{
+	background-color: aqua;
+	border: black solid 3px;
+	word-wrap: normal;
+}
+.break2 > p{
+	background-color: plum;
+	border: black solid 3px;
+	word-wrap: break-word;
+	white-space: pre;
+}

@@ -1,0 +1,3 @@
+Command for git :
+cp -r /c/Users/sdb46/Desktop/Main\ Programe/ /c/Users/sdb46/Documents/Program/
+
