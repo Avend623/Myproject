@@ -1,9 +1,0 @@
-div{
-	width: 100%;
-	background: aqua;
-}
-h2{
-	background: red;
-}
-/*! if there isn't content the height is 0 */
-/*! the div fit to content so % don't work for other tags */
