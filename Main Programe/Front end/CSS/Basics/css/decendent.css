@@ -1,0 +1,10 @@
+.list > ul > #item1
+{
+	color: red;
+}
+/*! this is dircet child (using ">")*/
+.list li
+{
+	color: aqua;
+}
+/*! this is decendent selector(using space" ")*/

@@ -1,0 +1,15 @@
+body
+{
+	width: 50%;
+}
+div
+{
+	width: 75%;
+}
+p
+{
+	background: red;
+}
+span{
+	background: aquamarine;
+}
