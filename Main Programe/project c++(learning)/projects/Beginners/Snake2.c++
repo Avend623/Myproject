@@ -2,7 +2,10 @@
 #include <conio.h>
 #include <ctime>
 #include <windows.h>
+<<<<<<< HEAD
 #include <mmsystem.h> // Include mmsystem.h for PlaySound
+=======
+>>>>>>> 3b04345e8151773d64c5b7d3ff6837cb6f88143e
 using namespace std;
 void ClearScreen()
 {
@@ -206,26 +209,45 @@ void Snake::Logic()
         Generate_fruit();
         Tail_N++;
         score++;
+<<<<<<< HEAD
         Beep(750, 300); // Beep sound when fruit is eaten
+=======
+        Beep(750, 100); // Beep sound when fruit is eaten
+>>>>>>> 3b04345e8151773d64c5b7d3ff6837cb6f88143e
     }
     if (x == 0 || x >= width - 1 || y == 0 || y >= height - 1)
     {
         GameOver = true;
+<<<<<<< HEAD
         Beep(500, 500); // Beep sound when game is over
+=======
+        Beep(500, 200); // Beep sound when game is over
+        Beep(700, 200); // Beep sound when game is over
+        Beep(900, 200); // Beep sound when game is over
+>>>>>>> 3b04345e8151773d64c5b7d3ff6837cb6f88143e
     }
     for (int i = 0; i < Tail_N; i++)
     {
         if (x == TailX[i] && y == TailY[i])
         {
             GameOver = true;
+<<<<<<< HEAD
             Beep(500, 500); // Beep sound when game is over
+=======
+            Beep(500, 200); // Beep sound when game is over
+            Beep(700, 200); // Beep sound when game is over
+            Beep(900, 200); // Beep sound when game is over
+>>>>>>> 3b04345e8151773d64c5b7d3ff6837cb6f88143e
         }
     }
 }
 void Results(Snake obs[], int size);
 int main()
 {
+<<<<<<< HEAD
     instructions();
+=======
+>>>>>>> 3b04345e8151773d64c5b7d3ff6837cb6f88143e
     // PlaySound(TEXT("651670__code_box__desert-snake.wav"), NULL, SND_FILENAME | SND_ASYNC);
     instructions();
     int size;
