@@ -8,7 +8,6 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-<<<<<<< HEAD
             "program": "C:/Users/sdb46/Desktop/Main Programe/hi.cpp",
             "args": [],
             "stopAtEntry": false,
@@ -17,16 +16,6 @@
             "externalConsole": false,
             "MIMode": "gdb",
             "miDebuggerPath": "C:/MinGW/bin/c++.exe",
-=======
-            "program": "C:/Users/sdb46/Desktop/Main Programe/veb full stack development/front end/lol.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:/MinGW/bin/g++.exe",
->>>>>>> 3b04345e8151773d64c5b7d3ff6837cb6f88143e
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",

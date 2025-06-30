@@ -1,0 +1,17 @@
+html{
+	font-size: 10px;
+}
+div{
+	background-color: red;
+	font-size: 20px;
+}
+p{
+	background-color: blue;
+	width: calc(10vw - 10px);
+	height: 10vh;
+	font-size: 100%;
+}
+/*todo /: root = 16px :/ */
+/*! 1rem = 1 x root(font-size) */
+/* root = html */
+/*! em = 1 x parent(font-size) */

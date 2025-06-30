@@ -1,0 +1,31 @@
+div{
+	width: 200px;
+	height: 100px;
+	background-color: black;
+
+}
+div:hover{
+	background-size: contain;
+	background-image: url(/download.jpeg);
+}
+div:active{
+	background-image: url(https://picsum.photos/200/100);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+div:empty{
+	width: 200px;
+	height: 200px;
+}
+a{
+	color: black;
+	text-decoration: none;
+	font-size: 2em;
+}
+a:hover{
+	color: blue;
+	text-decoration: underline;
+}
+a:visited{
+	color: red;
+}
