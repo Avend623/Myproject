@@ -2,16 +2,13 @@ div{
 	width: 200px;
 	height: 100px;
 	background-color: black;
-
 }
 div:hover{
 	background-size: contain;
-	background-image: url(/download.jpeg);
+	background-color: yellow;
 }
 div:active{
-	background-image: url(https://picsum.photos/200/100);
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-color: green;
 }
 div:empty{
 	width: 200px;
@@ -28,4 +25,10 @@ a:hover{
 }
 a:visited{
 	color: red;
+}
+a:link{
+	color: green;
+}
+a:active{
+	color: orange;
 }
