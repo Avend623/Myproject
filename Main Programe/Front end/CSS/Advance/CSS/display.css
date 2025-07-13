@@ -1,8 +1,8 @@
 /* 
 todo // property|  default width   | new line | width , height |	
 ________________________________________________
-* block			| 100 % of parent W |  new line  | respect	  |
-* inline		| Fit content 	    | new line	 | no respect |
+* block			| 100 % of parent W |  true  | respect	  |
+* inline		| Fit content 	    |  false | no respect |
 
 */
 

@@ -1,0 +1,17 @@
+/* 
+* hide (visibility: hidden) 
+* delete (display: none)
+* transparency (oapacity: )
+*/
+.first{
+	background: blue;
+	visibility: hidden;
+}
+.second{
+	background: green;
+	display: none;
+}
+.third{
+	background: red;
+	opacity: 50%;
+}
