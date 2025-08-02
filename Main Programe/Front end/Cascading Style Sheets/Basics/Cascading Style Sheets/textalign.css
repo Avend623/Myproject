@@ -1,0 +1,11 @@
+div
+{
+	background: aqua;
+	width: 200px;
+	text-align: center;
+}
+span
+{
+	display: block;
+	text-align: center;
+}

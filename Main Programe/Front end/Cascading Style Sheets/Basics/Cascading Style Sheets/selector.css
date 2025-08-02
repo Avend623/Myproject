@@ -1,0 +1,22 @@
+#h,.p
+{
+	color: red;
+	font-size: 30px;
+	font-weight: bold;
+	font-style: oblique;
+}
+/** we use "#" for id */
+p.test{
+	color: blue;
+	font-size: 20px;
+	font-weight: bold;
+	font-style: oblique;
+}
+/** we use "." for class */
+*{
+	color: green;
+	font-size: 10px;
+	font-weight: bold;
+	font-style: oblique;
+}
+/** we use "*" to take all available selectors*/

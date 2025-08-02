@@ -1,0 +1,44 @@
+body{
+	background-color: black;
+}
+.parent{
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.item{
+	background-color: gold;
+	height: 200px;
+	width: 24%;
+	text-align: center;
+	align-content: center;
+	border: 2px solid white;
+}
+.item:hover{
+	background-color: lightcoral;
+	color: white;
+}
+@media (max-width: 600px){
+	.parent{
+		flex-direction: column;
+	}
+	.item{
+		width: 100% !important;
+	}
+	.item:hover{
+		background-color: lightblue;
+	}
+}
+@media (min-width: 601px) and (max-width: 900px){
+	.parent{
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.item{
+		width: 46%;
+	}
+	.item:hover{
+		background-color: lightgreen;
+	}
+}
