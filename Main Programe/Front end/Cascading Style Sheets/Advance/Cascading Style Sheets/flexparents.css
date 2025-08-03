@@ -1,0 +1,38 @@
+/*! display: flex; is too important */
+/** flex-flow == flex-direction && flex-wrap */
+/*todo // justify-content for x if row and for y if column */
+/*todo // justify-content depends on direction of website */
+/*todo // justify-content space-> between around evenly */
+/*todo // between add space between contents (elements)  */
+/*todo // around add space around contents (before also) */
+/*todo // evenly add space around contents (consistant) */
+/*todo // align items & align content is Y if row */
+/*todo // align items & align content is X if column */
+/*? align content need wrap to work */
+.parent{
+	background-color: gold;
+	padding: 10px;
+	display: flex;
+	height: 400px;
+	/* flex-direction: row;
+	flex-wrap: wrap; */
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+}
+.parent > div{
+	padding: 10px;
+	margin: 5px;
+}
+.item1{
+	background: green;
+}
+.item2{
+	background: red;
+}
+.item3{
+	background: blue;
+}
+.item4{
+	background: violet;
+}

@@ -1,0 +1,24 @@
+/*! 1 - [attr] */
+/*! 2 - element[attr] */
+/*! 3 - [attr="value"] */
+/*! 4 - element[attr="value"] */
+/*! 5 - [attr ^="value"] start with */
+/*! 6 - [attr $="value"] end with */
+/*! 7 - [attr *="value"] containing a specified value */
+/*! 8 - [attr ~="value"] containing a specified word */
+/*! 9 - [attr ="value" i] case sensitive */
+
+input[type="submit"] {
+	background-color: rgba(255, 99, 71, 0.664);
+	border: 1.5px solid black;
+	outline: none;
+}
+
+[href*="com"] {
+	color:black;
+	text-decoration: none;
+}
+
+[class="tEsT" i]{
+	font-size: 1.5em;
+}

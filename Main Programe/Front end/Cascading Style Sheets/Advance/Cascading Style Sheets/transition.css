@@ -1,0 +1,20 @@
+/** transition ==> property(all)  */
+/** transition ==> duration(1s)  */
+/** transition ==> timing-function(ease)  */
+/** transition ==> delay(0s)  */
+div{
+	height: 18px;
+	width: 80px;
+	background: rgba(2, 70, 0, 0.829);
+	color: white;
+	text-align: center;
+	/* transition: width 1s ease 2s, background-color .5s; */
+	transition-property: width, background-color;
+	transition-duration: 1s, .5s;
+	transition-timing-function: ease,ease;
+	transition-delay: .1s;
+}
+div:hover{
+	width: 200px;
+	background-color: rgba(5, 165, 0, 0.897);
+}

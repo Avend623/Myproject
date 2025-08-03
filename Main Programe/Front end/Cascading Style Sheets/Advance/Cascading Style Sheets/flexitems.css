@@ -1,0 +1,40 @@
+.parent{
+	background-color: gold;
+	padding: 10px;
+	height: 400px;
+	gap: 10px;
+	display: flex;
+	flex-direction: row;
+}
+.parent > div{
+	padding: 10px;
+	margin: 5px;
+	text-align: center;
+}
+.item1{
+	background: green;
+	align-self: stretch;
+	/* flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 100px; */
+	flex: 1 1 100px; /* flex-grow flex-shrink flex-basis */
+	order: 4;
+}
+.item2{
+	background: red;
+	align-self: stretch;
+	flex: 2 2 50px; /* flex-grow flex-shrink flex-basis */
+	order: 2;
+}
+.item3{
+	background: blue;
+	align-self: stretch;
+	flex: 3 3 150px; /* flex-grow flex-shrink flex-basis */
+	order: 3;
+}
+.item4{
+	background: violet;
+	align-self: stretch;
+	flex: 4 4 200px; /* flex-grow flex-shrink flex-basis */
+	order: 1;
+}

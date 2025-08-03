@@ -1,0 +1,20 @@
+/* 
+todo // property|  default width   | new line | width , height |	
+________________________________________________
+* block			| 100 % of parent W |  true  | respect	  |
+* inline		| Fit content 	    |  false | no respect |
+
+*/
+
+p {
+	background-color: blue;
+	display: inline-block;
+	width: 200px;
+	height: 100px;
+	margin: 20px;
+}
+span {
+	background-color: red;
+	margin: 10px 0;
+	display: block;
+}

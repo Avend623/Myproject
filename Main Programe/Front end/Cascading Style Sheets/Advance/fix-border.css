@@ -1,0 +1,10 @@
+```css
+.your-element-class {
+    /* ...existing code... */
+    background-color: #f0f0f0; /* your desired color */
+    border: none;
+    outline: none;
+    box-shadow: none;
+    /* ...existing code... */
+}
+```
